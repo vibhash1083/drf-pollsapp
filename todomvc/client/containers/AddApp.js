@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
-import * as TodoActions from '../actions/TodoActions';
+import * as AdActions from '../actions/AdActions';
 
-class TodoApp extends Component {
+class AdApp extends Component {
 
   componentDidMount() {
-    this.props.actions.getTodos();
+    this.props.actions.getAds();
   }
 
   render() {
-    const { todos, actions } = this.props;
+    const { ads, actions } = this.props;
 
     return (
       <div>
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        <Header addAdvert={actions.addAdvert} />
+        <MainSection ads={ads} actions={actions} />
       </div>
     );
   }
@@ -25,14 +25,14 @@ class TodoApp extends Component {
 
 function mapState(state) {
   return {
-    todos: state.todos
+    ads: state.ads
   };
 }
 
 function mapDispatch(dispatch) {
   return {
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(AdActions, dispatch)
   };
 }
 
-export default connect(mapState, mapDispatch)(TodoApp);
+export default connect(mapState, mapDispatch)(AdApp);

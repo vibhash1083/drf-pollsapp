@@ -7,3 +7,9 @@ class Todo(models.Model):
 
     def __str__(self):
         return self.text
+
+class Advertiser(models.Model):
+    name = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.name
