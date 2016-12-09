@@ -11,6 +11,7 @@ const TODO_FILTERS = {
 
 export default class MainSection extends Component {
   static propTypes = {
+    /*ads: PropTypes.array.isRequired,*/
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
   };
