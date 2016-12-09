@@ -80,3 +80,4 @@ After you're logged in, you'll be able to use the Todo app and browse the API:
 
   * Todo App: <http://localhost:8000>
   * API: <http://localhost:8000/api>
+# drf-redux
