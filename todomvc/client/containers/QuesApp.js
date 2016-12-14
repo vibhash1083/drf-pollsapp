@@ -13,7 +13,7 @@ class QuesApp extends Component {
       }
   render() {
     const { ques, actions } = this.props;
-    console.log(ques,actions);
+
 
     return (
       <div>

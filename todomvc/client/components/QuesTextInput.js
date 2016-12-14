@@ -1,21 +1,32 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
-class QuesTextInput extends Component {
 
-  static propTypes = {
-    onSave: PropTypes.func.isRequired,
-    question: PropTypes.string,
-    answer: PropTypes.string,
-    placeholder: PropTypes.string,
-  };
+class QuesTextInput extends Component {
+    static propTypes = {
+        onSave: PropTypes.func.isRequired,
+        question: PropTypes.string,
+        answer: PropTypes.string,
+        placeholder: PropTypes.string,
+    };
+
+    constructor(props, context) {
+    super(props, context);
+    this.state = {
+      question: this.props.question || '',
+      answer: this.props.answer || ''
+
+    };
+  }
+
 
     handleSubmit(e){
         e.preventDefault();
         const question = this.refs.question.value;
         const answer = this.refs.answer.value;
         console.log(question, answer,this.props);
-        this.actions.addQues(question, answer);
+
+        this.props.onSave(question, answer);
     }
 
     render() {

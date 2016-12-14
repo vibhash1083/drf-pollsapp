@@ -9,7 +9,7 @@ export default function ques(state = initialState, action) {
     return [...action.ques];
 
   case ADD_QUES:
-    return [...state, action.addQues];
+    return [...state, action.que];
 
   default:
     return state;

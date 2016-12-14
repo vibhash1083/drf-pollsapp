@@ -13,8 +13,6 @@ class TodoApp extends Component {
 
   render() {
     const { todos, actions } = this.props;
-    console.log('this.props:  ',this.props);
-
 
     return (
       <div>
