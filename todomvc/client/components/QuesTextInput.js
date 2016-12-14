@@ -12,27 +12,20 @@ class QuesTextInput extends Component {
     };
   }
 
+  handleSubmit(e){
+        e.preventDefault();
+        const question = this.refs.question.value;
+        const answer = this.refs.answer.value;
+        this.props.addQues(question, answer);
+    }
+
   render() {
     return (
         <div className="list-group-item">
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="questionTitle">Question:</label>
-                        <input
-                            name="questionTitle"
-                            type="text"
-                            className="form-control"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="questionAnswer">Answer:</label>
-                        <input
-                            name="questionAnswer"
-                            type="text"
-                            className="form-control"
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                <form ref='questionForm' className='comment-form' onSubmit={this.handleSubmit}>
+                    Question: <input type='text' ref='question' placeholder='question'/><br/>
+                    Answer: <input type='text' ref='answer' placeholder='answer'/><br/>
+                    <input type='submit'/>
                 </form>
         </div>
     );

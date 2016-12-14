@@ -16,8 +16,8 @@ class AdvApp extends Component {
 
     return (
       <div>
-        <Header addAdv={actions.addAdv} />
-        <MainSection advs={advs} actions={actions} />
+        <Header addQues={actions.addQues} />
+        <MainSection ques={ques} actions={actions} />
       </div>
     );
   }

@@ -18,24 +18,25 @@ function getCookie(name) {
 
 
 export function addQues(question_text, answer_text) {
-  const newQues = {
-    question: question_text,
-    answer: answer_text
-  };
+      console.log('adding ques');
+      const newQues = {
+        question: question_text,
+        answer: answer_text
+      };
 
-  return fetch(Urls.question_list(), {
-    method: 'post',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
-    },
-    credentials: 'same-origin',
-    body: JSON.stringify(newQues)
-  }).then(response => response.json()).then(json => ({
-    type: types.ADD_AD,
-    que: json
-  }));
+      return fetch(Urls.question_list(), {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken')
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify(newQues)
+      }).then(response => response.json()).then(json => ({
+        type: types.ADD_QUES,
+        que: json
+      }));
 }
 
 
