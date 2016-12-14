@@ -3,7 +3,7 @@ import todos from './todos';
 import ques from './ques';
 
 const rootReducer = combineReducers({
-  todos,
+
   ques
 });
 

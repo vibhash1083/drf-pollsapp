@@ -13,11 +13,13 @@ class TodoApp extends Component {
 
   render() {
     const { todos, actions } = this.props;
+    console.log('this.props:  ',this.props);
+
 
     return (
       <div>
         <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+
       </div>
     );
   }

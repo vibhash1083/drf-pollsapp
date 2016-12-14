@@ -8,8 +8,12 @@ import * as QuesActions from '../actions/QuesActions';
 
 class QuesApp extends Component {
 
+  componentDidMount() {
+        this.props.actions.getQues();
+      }
   render() {
     const { ques, actions } = this.props;
+    console.log(ques,actions);
 
     return (
       <div>

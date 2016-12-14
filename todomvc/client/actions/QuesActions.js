@@ -16,6 +16,15 @@ function getCookie(name) {
   return cookieValue;
 }
 
+export function getQues() {
+  return fetch(Urls.question_list(), {
+    credentials: 'same-origin'
+  }).then(response => response.json()).then(json => ({
+    type: types.GET_QUES,
+    ques: json
+  }));
+}
+
 
 export function addQues(question_text, answer_text) {
       console.log('adding ques');
