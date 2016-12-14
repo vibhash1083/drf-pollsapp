@@ -21,6 +21,13 @@ export default class MainSection extends Component {
     this.state = { filter: SHOW_ALL };
   }
 
+  handleClearMarked() {
+    const atLeastOneMarked = this.props.todos.some(todo => todo.marked);
+    if (atLeastOneMarked) {
+      this.props.actions.clearMarked();
+    }
+  }
+
   handleShow(filter) {
     this.setState({ filter });
   }
@@ -47,5 +54,32 @@ export default class MainSection extends Component {
       </section>
     );
   }
+
+  renderToggleAll(markedCount) {
+    const { todos, actions } = this.props;
+    if (todos.length > 0) {
+      return (
+        <input className='toggle-all'
+               type='checkbox'
+               checked={markedCount === todos.length}
+               onChange={actions.markAll} />
+      );
+    }
+  }
+
+  renderFooter(markedCount) {
+    const { todos } = this.props;
+    const { filter } = this.state;
+    const unmarkedCount = todos.length - markedCount;
+
+    if (todos.length) {
+      return (
+        <Footer markedCount={markedCount}
+                unmarkedCount={unmarkedCount}
+                filter={filter}
+                onClearMarked={::this.handleClearMarked}
+                onShow={::this.handleShow} />
+      );
+    }
   }
 }

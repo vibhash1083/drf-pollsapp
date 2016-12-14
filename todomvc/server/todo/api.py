@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
-from .models import Todo, Advertiser
+from .models import Todo, Question
 
 
 class TodoSerializer(serializers.HyperlinkedModelSerializer):
@@ -15,15 +15,15 @@ class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
 
-class AdSerializer(serializers.HyperlinkedModelSerializer):
+class QuesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Advertiser
-        fields = ('id', 'name')
+        model = Question
+        fields = ('id', 'question', 'answer')
 
-class AdViewSet(viewsets.ModelViewSet):
-    queryset = Advertiser.objects.all()
-    serializer_class = AdSerializer
+class QuesViewSet(viewsets.ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuesSerializer
 
 def router_register(router):
     router.register(r'users', TodoViewSet)
-    router.register(r'users', AdViewSet)
+    router.register(r'users', QuesViewSet)

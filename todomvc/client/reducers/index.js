@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import todos from './todos';
-import advs from './advs';
+import ques from './ques';
 
 const rootReducer = combineReducers({
   todos,
-  advs
+  ques
 });
 
 export default rootReducer;

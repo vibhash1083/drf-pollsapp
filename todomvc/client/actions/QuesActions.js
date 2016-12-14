@@ -1,6 +1,5 @@
 import * as types from '../constants/ActionTypes';
 
-// from: https://docs.djangoproject.com/en/dev/ref/csrf/#ajax
 function getCookie(name) {
   var cookieValue = null;
   if (document.cookie && document.cookie != '') {
@@ -17,22 +16,14 @@ function getCookie(name) {
   return cookieValue;
 }
 
-export function getAdvs() {
-  return fetch(Urls.advertiser_list(), {
-    credentials: 'same-origin'
-  }).then(response => response.json()).then(json => ({
-    type: types.GET_ADS,
-    advs: json
-  }));
-}
 
-export function addAdv(text) {
-  const newAdv = {
-    name: text,
-
+export function addQues(question_text, answer_text) {
+  const newQues = {
+    question: question_text,
+    answer: answer_text
   };
 
-  return fetch(Urls.advertiser_list(), {
+  return fetch(Urls.question_list(), {
     method: 'post',
     headers: {
       'Accept': 'application/json',
@@ -40,24 +31,11 @@ export function addAdv(text) {
       'X-CSRFToken': getCookie('csrftoken')
     },
     credentials: 'same-origin',
-    body: JSON.stringify(newAdv)
+    body: JSON.stringify(newQues)
   }).then(response => response.json()).then(json => ({
     type: types.ADD_AD,
-    adv: json
+    que: json
   }));
 }
-export function deleteAdv(id) {
-  return fetch(Urls.advert_detail(id), {
-    method: 'delete',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
-    },
-    credentials: 'same-origin'
-  }).then(json => ({
-    type: types.DELETE_AD,
-    id: id
-  }));
-}
+
 

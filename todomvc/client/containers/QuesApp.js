@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as QuesActions from '../actions/QuesActions';
 
-class AdvApp extends Component {
-
-  componentDidMount() {
-    this.props.actions.getAdvs();
-  }
+class QuesApp extends Component {
 
   render() {
-    const { advs, actions } = this.props;
+    const { ques, actions } = this.props;
 
     return (
       <div>
-        <Header addAdv={actions.addAdv} />
-        <MainSection advs={advs} actions={actions} />
+        <Header addQues={actions.addQues} />
+        <MainSection ques={ques} actions={actions} />
       </div>
     );
   }
@@ -25,14 +22,14 @@ class AdvApp extends Component {
 
 function mapState(state) {
   return {
-    advs: state.advs
+    ques: state.ques
   };
 }
 
 function mapDispatch(dispatch) {
   return {
-    actions: bindActionCreators(AdvActions, dispatch)
+    actions: bindActionCreators(QuesActions, dispatch)
   };
 }
 
-export default connect(mapState, mapDispatch)(AdvApp);
+export default connect(mapState, mapDispatch)(QuesApp);
