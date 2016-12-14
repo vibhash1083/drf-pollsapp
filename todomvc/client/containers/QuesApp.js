@@ -14,7 +14,6 @@ class QuesApp extends Component {
     return (
       <div>
         <Header addQues={actions.addQues} />
-        <MainSection ques={ques} actions={actions} />
       </div>
     );
   }
