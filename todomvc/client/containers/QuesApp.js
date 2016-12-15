@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import QuesSection from '../components/QuesSection';
-
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as QuesActions from '../actions/QuesActions';
@@ -15,17 +14,14 @@ class QuesApp extends Component {
       }
 
   render() {
-            const { ques, actions } = this.props;
-            if (ques);
-            {
-                var questions = ques.map(function(ques,i){return <li> {ques.question}</li>})
-            }
-
+    const { ques, actions } = this.props;
 
     return (
       <div>
         <Header addQues={actions.addQues} />
-        <QuesSection ques={ques}/>
+        {this.props.ques.map((question, i) => <QuesSection {...this.props}
+                    key={i} i={i} question={question}/>)}
+
 
       </div>
     );

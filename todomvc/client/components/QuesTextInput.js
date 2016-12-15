@@ -27,12 +27,13 @@ class QuesTextInput extends Component {
 
 
         this.props.onSave(question, answer);
+        this.refs.questionForm.reset();
     }
 
     render() {
         return (
             <div className="list-group-item">
-                    <form onSubmit={this.handleSubmit.bind(this)}>
+                    <form ref='questionForm' onSubmit={this.handleSubmit.bind(this)}>
                         Question: <input type='text' ref='question' placeholder='question'/><br/>
                         Answer: <input type='text' ref='answer' placeholder='answer'/><br/>
                         <input type='submit'/>
