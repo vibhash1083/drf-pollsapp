@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {Link} from 'react-router';
 
 import QuesSection from '../components/QuesSection';
-import Header from '../components/Header';
+import Quiz from '../components/Quiz';
+
+
 import * as QuesActions from '../actions/QuesActions';
 
-class QuesApp extends Component {
+class QuizApp extends Component {
 
   componentDidMount() {
         this.props.actions.getQues();
       }
 
   render() {
-    const { ques, actions } = this.props;
+            const { ques, actions } = this.props;
+
 
     return (
       <div>
-        <Header addQues={actions.addQues} />
-
-        {this.props.ques.map((question, i) => <QuesSection {...this.props}
+      {this.props.ques.map((question, i) => <Quiz {...this.props}
                     key={i} i={i} question={question}/>)}
-
-
-        <Link to={"quiz/0"}>Student Mode</Link>
 
       </div>
     );
@@ -43,4 +40,4 @@ function mapDispatch(dispatch) {
   };
 }
 
-export default connect(mapState, mapDispatch)(QuesApp);
+export default connect(mapState, mapDispatch)(QuizApp);
