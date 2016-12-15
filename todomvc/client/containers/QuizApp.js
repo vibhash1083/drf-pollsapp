@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {Link} from 'react-router';
 
 import QuesSection from '../components/QuesSection';
 
-import Header from '../components/Header';
 import * as QuesActions from '../actions/QuesActions';
 
 class QuesApp extends Component {
@@ -16,17 +14,11 @@ class QuesApp extends Component {
 
   render() {
             const { ques, actions } = this.props;
-            if (ques);
-            {
-                var questions = ques.map(function(ques,i){return <li> {ques.question}</li>})
-            }
-
+            
 
     return (
       <div>
-        <Header addQues={actions.addQues} />
         <QuesSection ques={ques}/>
-        <Link to={"quiz/"}>Student Mode</Link>
       </div>
     );
   }

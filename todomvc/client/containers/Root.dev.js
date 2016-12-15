@@ -4,14 +4,17 @@ import TodoApp from './TodoApp';
 import DevTools from './DevTools';
 import QuesApp from './QuesApp';
 
+import { Router, browserHistory } from 'react-router';
+
+import Routes from './routes';
+
 export default class Root extends Component {
   render() {
     const { store } = this.props;
     return (
       <Provider store={store}>
         <div>
-
-          <QuesApp/>
+          <Router history={browserHistory} routes={Routes} />
           <DevTools />
         </div>
       </Provider>
