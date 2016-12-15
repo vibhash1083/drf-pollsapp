@@ -6,9 +6,9 @@ export default class QuesSection extends Component {
   render() {
     const { ques, actions } = this.props;
     console.log('in ListSection',this.props);
-    if (ques);
+    if (this.props.ques);
             {
-                var questions = ques.map(function(ques,i){return <li> {ques.question}</li>})
+                var questions = this.props.ques.map(function(ques,i){return <li> {ques.question}</li>})
             }
 
     return (
