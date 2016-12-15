@@ -27,7 +27,6 @@ export function getQues() {
 
 
 export function addQues(question_text, answer_text) {
-      console.log('adding ques');
       const newQues = {
         question: question_text,
         answer: answer_text

@@ -24,7 +24,7 @@ class QuesTextInput extends Component {
         e.preventDefault();
         const question = this.refs.question.value;
         const answer = this.refs.answer.value;
-        console.log(question, answer,this.props);
+
 
         this.props.onSave(question, answer);
     }
@@ -37,6 +37,7 @@ class QuesTextInput extends Component {
                         Answer: <input type='text' ref='answer' placeholder='answer'/><br/>
                         <input type='submit'/>
                     </form>
+
             </div>
         );
     }
