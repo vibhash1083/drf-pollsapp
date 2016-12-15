@@ -8,7 +8,7 @@ import QuizApp from './QuizApp';
 export default (
 	<Router>
     <Route path="/" component={QuesApp}/>
-	<Route path="quiz/" component={QuizApp}/>
+	<Route path="quiz/:id" component={QuizApp}/>
     </Router>
 
 

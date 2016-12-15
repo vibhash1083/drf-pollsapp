@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import QuesSection from '../components/QuesSection';
+import Quiz from '../components/Quiz';
+
 
 import * as QuesActions from '../actions/QuesActions';
 
-class QuesApp extends Component {
+class QuizApp extends Component {
 
   componentDidMount() {
         this.props.actions.getQues();
@@ -18,7 +20,7 @@ class QuesApp extends Component {
 
     return (
       <div>
-        <QuesSection ques={ques}/>
+        <Quiz ques={ques}/>
       </div>
     );
   }
@@ -36,4 +38,4 @@ function mapDispatch(dispatch) {
   };
 }
 
-export default connect(mapState, mapDispatch)(QuesApp);
+export default connect(mapState, mapDispatch)(QuizApp);
