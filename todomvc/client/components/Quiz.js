@@ -16,7 +16,7 @@ export default class QuesSection extends Component {
     return (
               <div className='ListSection'>
 
-                <ul><p><Link to={`/quiz/${question.id}`}>{i+1} {question.question}</Link></p></ul>
+                <ul><Link to={`/quiz/${question.id}`}>{i+1} {question.question}</Link></ul>
 
 
               </div>
