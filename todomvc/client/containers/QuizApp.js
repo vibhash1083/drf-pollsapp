@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {Link} from 'react-router';
 
 import QuesSection from '../components/QuesSection';
 import Quiz from '../components/Quiz';
@@ -23,6 +24,7 @@ class QuizApp extends Component {
       {this.props.ques.map((question, i) => <Quiz {...this.props}
                     key={i} i={i} question={question}/>)}
 
+      <Link to={'/'}>Admin</Link>
       </div>
     );
   }
