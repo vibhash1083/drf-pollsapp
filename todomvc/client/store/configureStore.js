@@ -5,13 +5,7 @@ import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 
 const enhancer = compose(
-  applyMiddleware(promise),
-  DevTools.instrument(),
-  persistState(
-    window.location.href.match(
-      /[?&]debug_session=([^&#]+)\b/
-    )
-  )
+  applyMiddleware(promise)
 );
 
 export default function configureStore(initialState) {
