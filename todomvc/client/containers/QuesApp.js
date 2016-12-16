@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {Link} from 'react-router';
+import classnames from 'classnames';
 
 import QuesSection from '../components/QuesSection';
 import Header from '../components/Header';
@@ -25,6 +26,7 @@ class QuesApp extends Component {
 
 
         <Link to={"quiz/"}>Student Mode</Link>
+
 
       </div>
     );

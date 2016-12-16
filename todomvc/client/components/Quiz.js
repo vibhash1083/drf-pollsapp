@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 
 import {Link} from 'react-router';
 
-
 export default class QuesSection extends Component {
 	constructor(props) {
         super(props)
@@ -50,10 +49,9 @@ export default class QuesSection extends Component {
  		console.log('correctstate', this.state.correct);
     }
 
-
   render() {
     const { question, i ,actions } = this.props;
-    console.log('in ListSection',this.props);
+
 
 
     return (

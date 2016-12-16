@@ -47,4 +47,36 @@ export function addQues(question_text, answer_text) {
       }));
 }
 
+export function deleteQues(id) {
+    console.log('delete',id);
+  return fetch(Urls.question_detail(id), {
+    method: 'delete',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': getCookie('csrftoken')
+    },
+    credentials: 'same-origin'
+  }).then(json => ({
+    type: types.DELETE_QUES,
+    id: id
+  }));
+}
+
+export function editQue(editedQue) {
+  return fetch(Urls.question_detail(editedQue.id), {
+    method: 'put',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': getCookie('csrftoken')
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify(editedQue)
+  }).then(response => response.json()).then(json => ({
+    type: types.EDIT_QUE,
+    que: json
+  }));
+}
+
 
