@@ -5,8 +5,6 @@ import QuesApp from './QuesApp';
 import QuizApp from './QuizApp';
 import SingleApp from './SingleApp';
 
-
-
 export default (
 	<Router>
     <Route path="/" component={QuesApp}/>
