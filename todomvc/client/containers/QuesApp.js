@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 import classnames from 'classnames';
 
 import QuesSection from '../components/QuesSection';
-import Header from '../components/Header';
+import QuestionsHandler from '../components/QuesActionsHandler';
 import * as QuesActions from '../actions/QuesActions';
 
 class QuesApp extends Component {
