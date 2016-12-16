@@ -20,7 +20,7 @@ class QuesApp extends Component {
     return (
       <div>
         <QuestionsHandler addQues={actions.addQues} />
-
+        <h3>Questions List</h3>
         {this.props.ques.map((question, i) => <QuesSection {...this.props}
                     key={i} i={i} question={question}/>)}
         <Link to={"quiz/"}>Student Mode</Link>

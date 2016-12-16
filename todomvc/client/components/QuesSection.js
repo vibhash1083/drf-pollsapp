@@ -64,12 +64,16 @@ export default class QuesSection extends Component {
 
     return (
               <div className='ListSection'>
-                <ul><p>{i+1} {question.question} <button className='destroy'
-                   onClick={this.handleDelete.bind(this)}>&times;</button><button
+                <ul><p>{i+1} {question.question} 
+                   <button className='destroy'
+                   onClick={this.handleDelete.bind(this)}>
+                   &times;
+                   </button>
+                   <button
                    onClick={this.toggleEdit.bind(this)}
                     className="btn btn-default">
                     Edit
-                </button></p>
+                   </button></p>
                 {this.state.editView &&
                 <form onSubmit={this.submitEditHandler.bind(this)}>
                     <div className="form-group">

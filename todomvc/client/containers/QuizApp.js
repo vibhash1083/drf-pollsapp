@@ -26,7 +26,7 @@ class QuizApp extends Component {
                         key={i} i={i} question={question}/>)}
           
 
-      <Link to={'/'}>Admin</Link>
+      <Link to={'/'}>Creator Mode</Link>
       </div>
     );
   }
