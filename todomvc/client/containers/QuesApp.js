@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 import classnames from 'classnames';
 
 import QuesSection from '../components/QuesSection';
-import QuestionsHandler from '../components/QuesActionsHandler';
+import QuestionsHandler from '../components/QuestionsHandler';
 import * as QuesActions from '../actions/QuesActions';
 
 class QuesApp extends Component {
@@ -19,15 +19,11 @@ class QuesApp extends Component {
 
     return (
       <div>
-        <Header addQues={actions.addQues} />
+        <QuestionsHandler addQues={actions.addQues} />
 
         {this.props.ques.map((question, i) => <QuesSection {...this.props}
                     key={i} i={i} question={question}/>)}
-
-
         <Link to={"quiz/"}>Student Mode</Link>
-
-
       </div>
     );
   }
