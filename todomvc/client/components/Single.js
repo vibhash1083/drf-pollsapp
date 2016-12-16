@@ -25,7 +25,6 @@ export default class Single extends Component {
     	let correctans = 0;
     	let incorrectans = 0;
 
-
     	const answer = this.refs.answer.value
     	console.log('answer',answer);
     	console.log('actualans',this.props.question.answer);
@@ -50,7 +49,6 @@ export default class Single extends Component {
 
  		console.log('correctstate', this.state.correct);
     }
-
 
   render() {
     const {handleSubmit, question, i ,actions } = this.props;
@@ -79,4 +77,5 @@ function mapStateToProps(state) {
         questions: state.questions
     }
 }
+
 
