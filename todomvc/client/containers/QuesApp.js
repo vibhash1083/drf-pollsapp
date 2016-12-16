@@ -25,8 +25,8 @@ class QuesApp extends Component {
                     key={i} i={i} question={question}/>)}
 
 
+        <Link to={"quiz/"}>Student Mode</Link>
 
-        <Link to={"quiz/0"}>Student Mode</Link>
 
       </div>
     );

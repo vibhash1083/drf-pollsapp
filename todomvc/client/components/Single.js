@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 
 import {Link} from 'react-router';
 
-export default class QuesSection extends Component {
+
+export default class Single extends Component {
+
 	constructor(props) {
         super(props)
 
@@ -49,21 +51,32 @@ export default class QuesSection extends Component {
  		console.log('correctstate', this.state.correct);
     }
 
-  render() {
-    const { question, i ,actions } = this.props;
 
+  render() {
+    const {handleSubmit, question, i ,actions } = this.props;
+    console.log('Single Section',this.props);
 
 
     return (
-    		<div>
-	              	<div className='ListSection'>
-	                	<ul><Link to={`/quiz/${question.id}`}>{i+1} {question.question}</Link><br/>
-	                		<form ref='singleForm' onSubmit={this.quizHandler.bind(this)}>
-			                    Answer: <input type='text' ref='answer' placeholder='answer'/><br/>
-			                    <input type='submit'/>
-			                </form></ul>
-	              	</div>
-            </div>
+              <div className='SingleSection'>
+                <ul> {question.question}</ul>
+                <form ref='singleForm' onSubmit={this.quizHandler.bind(this)}>
+                    Answer: <input type='text' ref='answer' placeholder='answer'/><br/>
+                    <input type='submit'/>
+                </form>
+                <div>
+                            <h4>{this.state.correct} correct</h4>
+                            <h4>{this.state.incorrect} incorrect</h4>
+                </div>
+                <Link to={"quiz/"}>Go Back to List of Questions</Link>
+              </div>
             );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        questions: state.questions
+    }
+}
+
