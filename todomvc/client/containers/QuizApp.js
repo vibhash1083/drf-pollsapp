@@ -23,6 +23,7 @@ class QuizApp extends Component {
         <h3>Questions List</h3>
           {this.props.ques.map((question, i) => <Quiz {...this.props}
                         key={i} i={i} question={question}/>)}
+          
 
       </div>
     );
