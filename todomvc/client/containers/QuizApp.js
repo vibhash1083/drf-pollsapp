@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import QuesSection from '../components/QuesSection';
+
 import Quiz from '../components/Quiz';
 
 
@@ -20,8 +20,9 @@ class QuizApp extends Component {
 
     return (
       <div>
-      {this.props.ques.map((question, i) => <Quiz {...this.props}
-                    key={i} i={i} question={question}/>)}
+        <h3>Questions List</h3>
+          {this.props.ques.map((question, i) => <Quiz {...this.props}
+                        key={i} i={i} question={question}/>)}
 
       </div>
     );

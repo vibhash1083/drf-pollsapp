@@ -14,12 +14,11 @@ export default class QuesSection extends Component {
 
 
     return (
-              <div className='ListSection'>
-
-                <ul><Link to={`/quiz/${question.id}`}>{i+1} {question.question}</Link></ul>
-
-
-              </div>
+    		<div>
+	              	<div className='ListSection'>
+	                	<ul><Link to={`/quiz/${question.id}`}>{i+1} {question.question}</Link></ul>
+	              	</div>
+            </div>
             );
     }
 }
