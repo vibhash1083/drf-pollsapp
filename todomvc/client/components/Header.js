@@ -2,9 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import QuesTextInput from './QuesTextInput';
 
 export default class Header extends Component {
-  static propTypes = {
-    addQues: PropTypes.func.isRequired
-  };
+
 
   handleSave(question,answer) {
 

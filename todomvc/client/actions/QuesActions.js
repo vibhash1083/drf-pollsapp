@@ -64,6 +64,7 @@ export function deleteQues(id) {
 }
 
 export function editQue(editedQue) {
+
   return fetch(Urls.question_detail(editedQue.id), {
     method: 'put',
     headers: {
