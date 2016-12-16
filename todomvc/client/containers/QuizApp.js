@@ -22,10 +22,9 @@ class QuizApp extends Component {
     return (
       <div>
         <h3>Questions List</h3>
-          {this.props.ques.map((question, i) => <Quiz {...this.props}
+          {this.props.ques.map((question, i, score) => <Quiz {...this.props}
                         key={i} i={i} question={question}/>)}
-          
-
+        <p>Total Score: {this.props.score} </p>
       <Link to={'/'}>Creator Mode</Link>
       </div>
     );
@@ -42,6 +41,10 @@ function mapDispatch(dispatch) {
   return {
     actions: bindActionCreators(QuesActions, dispatch)
   };
+}
+
+function getInitialState() {
+      return {score: 0};
 }
 
 export default connect(mapState, mapDispatch)(QuizApp);

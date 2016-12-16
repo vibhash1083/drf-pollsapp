@@ -9,11 +9,11 @@ export default class Quiz extends Component {
 
   render() {
     const { question, i ,actions } = this.props;
-
+    console.log(this.props);
     return (
     		<div>
 	              	<div className='QuizSection'>
-	                	<ul><Link to={`/quiz/${question.id}`}>{i+1} {question.question}</Link>
+	                	<ul>{i+1}<Link to={`/quiz/${question.id}`}> {question.question}</Link>
 	                	<br/>
 	                	</ul>
 	              	</div>
@@ -21,4 +21,3 @@ export default class Quiz extends Component {
             );
     }
 }
-

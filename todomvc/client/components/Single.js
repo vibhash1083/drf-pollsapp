@@ -47,6 +47,7 @@ export default class Single extends Component {
             checked: true
         })
  		console.log('correctstate', this.state.correct);
+        this.refs.btn.setAttribute("disabled", "disabled");
     }
 
   render() {
@@ -57,10 +58,10 @@ export default class Single extends Component {
     return (
               <div className='SingleSection'>
               <h2>Answer the following Question</h2>
-                <ul> {question.question}</ul>
+                <ul> <b>{question.question}</b></ul>
                 <form ref='singleForm' onSubmit={this.quizHandler.bind(this)}>
                     Answer: <input type='text' ref='answer' placeholder='answer'/><br/><br/>
-                    <input type='submit'/>
+                    <input ref='btn' type='submit'/>
                 </form>
                 <div>
                             <h4>{this.state.correct} correct</h4>
