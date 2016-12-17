@@ -9,6 +9,12 @@ import Counter from './Counter';
 
 export default class Single extends Component {
 
+     componentDidMount() 
+  {
+        this.props.actions.getScore();
+  }
+
+
 	constructor(props) {
         super(props)
 
@@ -19,46 +25,53 @@ export default class Single extends Component {
         }
     }
 
+
     quizHandler(e) 
     {
     	e.preventDefault();
     	console.log("In quizHandler");
     	console.log(this.props);
-        console.log("Count");
-        console.log(this.state.count);
+        /*console.log("Count");
+
+        console.log(this.state.count);*/
     	let correctans = 0;
     	let incorrectans = 0;
-
     	const answer = this.refs.answer.value
-    	console.log('answer',answer);
+    	/*console.log('answer',answer);
     	console.log('actualans',this.props.question.answer);
-    	console.log('correctstate', this.state.correct);
+    	console.log('correctstate', this.state.correct);*/
     	if (answer === this.props.question.answer)
     	{
-    		correctans++;
+    		console.log('true')
+            correctans = correctans+1
+            this.props.actions.addScore(correctans);
+            console.log(this.props);
     	}
     	else
     	{
-    		incorrectans++;
+    		console.log('False');
     	}	
 
     	console.log(correctans);
     	console.log(incorrectans);
 
-    	this.setState({
-            correct: correctans,
-            incorrect: incorrectans,
-            checked: true
-        })
  		console.log('correctstate', this.state.correct);
-        this.refs.btn.setAttribute("disabled", "disabled");
+        this.refs.btn.setAttribute("disabled", "disabled");*/
     }
 
+
+
   render() {
-    const {handleSubmit, question, i ,actions } = this.props;
+    const { question, i ,actions } = this.props;
+
     console.log('Single Section',this.props);
     const {correct_score} = this.state.correct;
-
+    console.log("Getting index in the single app");
+    console.log(i);
+    console.log(this.props.ques[i]);
+    this.props.ques[i].score = this.state.correct;
+    console.log("Getting properties in the single app");
+    console.log(this.props.ques[i].score);
 
     return (
               <div className='SingleSection'>
@@ -73,18 +86,15 @@ export default class Single extends Component {
                             <h4>{this.state.correct} correct</h4>
                             <h4>{this.state.incorrect} incorrect</h4>
                 </div>
-                {this.props.ques.map((score) => <Counter score={this.state.correct}/>)}
-                <Counter score={correct_score} {...this.props}/>
+                                 
                 <Link to={"quiz/"}>Go Back to List of Questions</Link>
               </div>
             );
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        questions: state.questions
-    }
+function mapState(state) {
+  return {
+    score: state.score
+  };
 }
-
-

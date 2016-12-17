@@ -39,7 +39,8 @@ class QuizApp extends Component {
 
 function mapState(state) {
   return {
-    ques: state.ques
+    ques: state.ques,
+    score: state.score
   };
 }
 
