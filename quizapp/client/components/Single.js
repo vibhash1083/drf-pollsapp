@@ -56,7 +56,7 @@ export default class Single extends Component {
     	console.log(incorrectans);
 
  		console.log('correctstate', this.state.correct);
-        this.refs.btn.setAttribute("disabled", "disabled");*/
+        this.refs.btn.setAttribute("disabled", "disabled");
     }
 
 
