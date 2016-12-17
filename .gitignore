@@ -1,13 +1,5 @@
-Thumbs.db
-.DS_Store
-.noseids
 *.pyc
 *.log
-*.swp
-pip.log
 webpack-stats.json
-env
-.idea
-.pycharm_helpers
 db.sqlite3
 node_modules
