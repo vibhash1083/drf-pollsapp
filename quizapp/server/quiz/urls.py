@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from todomvc import routers
+from quizapp import routers
 
 from . import views
 from . import api
