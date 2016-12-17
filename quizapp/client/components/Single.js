@@ -31,15 +31,15 @@ export default class Single extends Component {
     	e.preventDefault();
     	console.log("In quizHandler");
     	console.log(this.props);
-        /*console.log("Count");
+        console.log("Count");
 
-        console.log(this.state.count);*/
+        console.log(this.state.count);
     	let correctans = 0;
     	let incorrectans = 0;
     	const answer = this.refs.answer.value
-    	/*console.log('answer',answer);
+    	console.log('answer',answer);
     	console.log('actualans',this.props.question.answer);
-    	console.log('correctstate', this.state.correct);*/
+    	console.log('correctstate', this.state.correct);
     	if (answer === this.props.question.answer)
     	{
     		console.log('true')
