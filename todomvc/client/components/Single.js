@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import {Link} from 'react-router';
 
+import Counter from './Counter';
+
 
 export default class Single extends Component {
 
@@ -22,6 +24,8 @@ export default class Single extends Component {
     	e.preventDefault();
     	console.log("In quizHandler");
     	console.log(this.props);
+        console.log("Count");
+        console.log(this.state.count);
     	let correctans = 0;
     	let incorrectans = 0;
 
@@ -53,6 +57,7 @@ export default class Single extends Component {
   render() {
     const {handleSubmit, question, i ,actions } = this.props;
     console.log('Single Section',this.props);
+    const {correct_score} = this.state.correct;
 
 
     return (
@@ -63,10 +68,13 @@ export default class Single extends Component {
                     Answer: <input type='text' ref='answer' placeholder='answer'/><br/><br/>
                     <input ref='btn' type='submit'/>
                 </form>
+                
                 <div>
                             <h4>{this.state.correct} correct</h4>
                             <h4>{this.state.incorrect} incorrect</h4>
                 </div>
+                {this.props.ques.map((score) => <Counter score={this.state.correct}/>)}
+                <Counter score={correct_score} {...this.props}/>
                 <Link to={"quiz/"}>Go Back to List of Questions</Link>
               </div>
             );

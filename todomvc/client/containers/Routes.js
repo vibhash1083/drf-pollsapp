@@ -8,7 +8,6 @@ import SingleApp from './SingleApp';
 export default (
 	<Router>
 	    <Route path="/" component={QuesApp}/>
-
 		<Route path="quiz/" component={QuizApp}/>
 		<Route path="quiz/:id" component={SingleApp}/>
     </Router>

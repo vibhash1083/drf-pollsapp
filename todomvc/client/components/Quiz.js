@@ -9,11 +9,13 @@ export default class Quiz extends Component {
 
   render() {
     const { question, i ,actions } = this.props;
-    console.log(this.props);
+    console.log("getting count")
+    console.log(this.props.ques.score);
+
     return (
     		<div>
 	              	<div className='QuizSection'>
-	                	<ul>{i+1}<Link to={`/quiz/${question.id}`}> {question.question}</Link>
+	                	<ul>{i+1} <Link to={`/quiz/${question.id}`}>{question.question}</Link>
 	                	<br/>
 	                	</ul>
 	              	</div>
