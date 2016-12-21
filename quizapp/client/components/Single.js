@@ -35,6 +35,7 @@ function mapState(state) {
   return {
     questions: state.ques,
     choices: state.choices
+
   };
 }
 
