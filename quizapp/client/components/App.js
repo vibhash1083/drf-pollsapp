@@ -10,13 +10,15 @@ import * as QuesActions from '../actions/QuesActions';
 
 class App extends Component {
 
-  componentDidMount() 
+  componentDidMount()
   {
         this.props.actions.getQues();
+        this.props.actions.getChoices();
+
   }
 
 
-  render() 
+  render()
   {
     const { ques, actions } = this.props;
 

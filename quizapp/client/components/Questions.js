@@ -5,9 +5,7 @@ import {Link} from 'react-router';
 
 export default class QuesSection extends Component {
 
-  constructor(props) {
-            super(props);
-        }
+
 
     render() {
     const { question, i ,actions } = this.props;

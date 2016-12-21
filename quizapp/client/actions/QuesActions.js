@@ -6,7 +6,7 @@ function getCookie(name) {
     var cookies = document.cookie.split(';');
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i].trim();
-      
+
       // Does this cookie string begin with the name we want?
       if (cookie.substring(0, name.length + 1) == (name + '=')) {
         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
@@ -81,50 +81,11 @@ export function editQue(editedQue) {
   }));
 }
 
-export function getScore() {
-  return fetch(Urls.score_list(), {
+export function getChoices() {
+  return fetch(Urls.choice_list(), {
     credentials: 'same-origin'
   }).then(response => response.json()).then(json => ({
-    type: types.GET_SCORE,
-    score: json
-  }));
-}
-
-
-export function addScore(score) {
-  console.log('addscore');
-      const newScore = {
-        score: score,
-      };
-
-      return fetch(Urls.score_list(), {
-        method: 'post',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken')
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify(newScore)
-      }).then(response => response.json()).then(json => ({
-        type: types.ADD_SCORE,
-        score: json
-      }));
-}
-
-export function editScore(editedScore) {
-
-  return fetch(Urls.score_detail(editedScore.id), {
-    method: 'put',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken')
-    },
-    credentials: 'same-origin',
-    body: JSON.stringify(editedScore)
-  }).then(response => response.json()).then(json => ({
-    type: types.EDIT_SCORE,
-    score: json
+    type: types.GET_CHOICES,
+    choices: json
   }));
 }
