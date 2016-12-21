@@ -9,9 +9,10 @@ import * as QuesActions from '../actions/QuesActions';
 
 class Single extends Component {
 
+
     render() {
 
-    const { questions, actions } = this.props;
+    const { questions,choices,actions } = this.props;
     console.log('this.props',this.props,'question',questions);
     const {id} = this.props.params;
     const i = questions.findIndex(x => x.id==id);
@@ -22,9 +23,9 @@ class Single extends Component {
     return (
               <div className='ListSection'>
                   <h2>Poll Your Choice</h2>
-                    <ul><p>{question_obj.id}. {question_obj.question_text}</p></ul>
-
-                    <Choices />
+                  {choices.map((choice, i) => <Choices {...this.props}
+                    key={i} i={i} choice={choice}/>)}
+                    
               </div>
             );
     }

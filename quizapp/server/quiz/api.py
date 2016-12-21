@@ -4,12 +4,12 @@ from rest_framework import routers, serializers, viewsets
 
 from .models import Question, Choice
 
-class QuesSerializer(serializers.HyperlinkedModelSerializer):
+class QuesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ('id', 'question_text')
 
-class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
+class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
         fields = ('id', 'question', 'choice_text')

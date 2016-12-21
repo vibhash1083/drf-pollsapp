@@ -82,6 +82,7 @@ export function editQue(editedQue) {
 }
 
 export function getChoices() {
+
   return fetch(Urls.choice_list(), {
     credentials: 'same-origin'
   }).then(response => response.json()).then(json => ({
