@@ -2,26 +2,26 @@ from django.conf.urls import url, include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
-from .models import Question, Score
+from .models import Question, Choice
 
 class QuesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
-        fields = ('id', 'question', 'answer')
+        fields = '__all__'
+
+class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Choice
+        fields = '__all__'
 
 class QuesViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuesSerializer
 
-class ScoreSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Score
-        fields = ('id', 'score')
-
-class ScoreViewSet(viewsets.ModelViewSet):
-    queryset = Score.objects.all()
-    serializer_class = ScoreSerializer
+class ChoiceViewSet(viewsets.ModelViewSet):
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
 
 def router_register(router):
     router.register(r'users', QuesViewSet)
-    router.register(r'users', ScoreViewSet)
+    router.register(r'users', ChoiceViewSet)
