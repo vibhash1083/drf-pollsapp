@@ -1,4 +1,3 @@
-
 import { createStore, compose, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 import { persistState } from 'redux-devtools';
@@ -19,5 +18,3 @@ export default function configureStore(initialState) {
 
   return store;
 }
-
-

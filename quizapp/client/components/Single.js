@@ -1,25 +1,45 @@
-import React, { PropTypes, Component } from 'react';
-
-import {connect} from 'react-redux';
-import classnames from 'classnames';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {Link} from 'react-router';
+import classnames from 'classnames';
 
-export default class Single extends Component {
+import Questions from '../components/Questions';
 
-  constructor(props) {
-        super(props);
-        this.state = {
-                        question: '',
-                        id : ''
-                    }
-        }
+import * as QuesActions from '../actions/QuesActions';
 
-    render() {
-    const { question, i ,actions } = this.props;
+class App extends Component {
+
+  componentDidMount() 
+  {
+        this.props.actions.getChoices();
+  }
+
+
+  render() 
+  {
+    const { cho, actions } = this.props;
+
     return (
-              <div className='ListSection'>
-                <ul><p> Single question </p></ul>
-              </div>
-            );
-    }
+      <div>
+        <h3>Questions List</h3>
+        {this.props.ques.map((question, i) => <Questions {...this.props}
+                    key={i} i={i} question={question}/>)}
+      </div>
+    );
+  }
 }
+
+function mapState(state) {
+  return {
+    ques: state.choices
+  };
+}
+
+function mapDispatch(dispatch) {
+  return {
+    actions: bindActionCreators(QuesActions, dispatch)
+  };
+}
+
+export default connect(mapState, mapDispatch)(App);
