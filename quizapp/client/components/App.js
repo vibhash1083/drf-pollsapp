@@ -4,11 +4,17 @@ import { bindActionCreators } from 'redux';
 import {Link} from 'react-router';
 import classnames from 'classnames';
 
-import QuesSection from '../components/QuesSection';
-import QuestionsHandler from '../components/QuestionsHandler';
+import Questions from '../components/Questions';
+
 import * as QuesActions from '../actions/QuesActions';
 
 class App extends Component {
+
+  componentDidMount() 
+  {
+        this.props.actions.getQues();
+  }
+
 
   render() 
   {
@@ -17,6 +23,8 @@ class App extends Component {
     return (
       <div>
         <h3>Questions List</h3>
+        {this.props.ques.map((question, i) => <Questions {...this.props}
+                    key={i} i={i} question={question}/>)}
       </div>
     );
   }

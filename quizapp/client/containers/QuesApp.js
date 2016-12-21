@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import {Link} from 'react-router';
 import classnames from 'classnames';
 
-import QuesSection from '../components/QuesSection';
 import QuestionsHandler from '../components/QuestionsHandler';
 import * as QuesActions from '../actions/QuesActions';
 
@@ -25,7 +24,6 @@ class QuesApp extends Component {
         <h3>Questions List</h3>
         {this.props.ques.map((question, i) => <QuesSection {...this.props}
                     key={i} i={i} question={question}/>)}
-        <Link to={"quiz/"}>Student Mode</Link>
       </div>
     );
   }
