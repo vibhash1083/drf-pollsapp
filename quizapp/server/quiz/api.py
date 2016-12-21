@@ -7,12 +7,12 @@ from .models import Question, Choice
 class QuesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
-        fields = '__all__'
+        fields = ('id', 'question_text')
 
 class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Choice
-        fields = '__all__'
+        fields = ('id', 'question', 'choice_text')
 
 class QuesViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()

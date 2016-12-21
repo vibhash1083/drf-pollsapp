@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import QuesApp from './QuesApp';
 
 import { Router, browserHistory } from 'react-router';
 
