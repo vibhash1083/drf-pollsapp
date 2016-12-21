@@ -9,7 +9,6 @@ import * as QuesActions from '../actions/QuesActions';
 
 class Single extends Component {
 
-
     render() {
 
     const { questions, actions } = this.props;
