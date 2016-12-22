@@ -6,6 +6,16 @@ import {Link} from 'react-router';
 
 class Choices extends Component {
 
+    render(){
+
+        console.log(this.props);
+            <label>
+            <input type="radio" value="{ this.state.choice.id }" checked={this.state.selectedOption === '1'} onChange={this.handleOptionChange}/>
+            { this.props.choice.choice_text }
+        </label>
+        
+    }
+    /*
     render() {
 
     console.log('in Choices',this.props.params.id);
@@ -21,7 +31,7 @@ class Choices extends Component {
               {choice_div} 
               </div>
             );
-    }
+    }*/
 }
 
 
