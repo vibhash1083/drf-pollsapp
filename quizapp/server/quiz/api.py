@@ -12,7 +12,7 @@ class QuesSerializer(serializers.ModelSerializer):
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        fields = ('id', 'question', 'choice_text')
+        fields = ('id', 'question', 'choice_text', 'votes')
 
 class QuesViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()

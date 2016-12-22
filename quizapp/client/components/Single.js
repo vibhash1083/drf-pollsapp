@@ -6,17 +6,16 @@ import {Link} from 'react-router';
 import Choices from './Choices';
 import * as QuesActions from '../actions/QuesActions';
 
-
 class Single extends Component {
 
-    constructor(props){
+    /*constructor(props){
         super(props);
         this.state = {
             selectedOption:'1',
             questions: this.props.questions,
             choices: this.props.choices,
         };
-    };
+    };*/
 
     handleOptionChange(changeEvent) {
       /*  this.setState({
@@ -31,6 +30,12 @@ class Single extends Component {
         console.log('You have selected:', this.state.selectedOption);
     },
     */
+
+    handleSubmit(e)
+    {
+        e.preventDefault();
+    }
+
     render() {
 
         const { questions, choices, actions } = this.props;
@@ -44,8 +49,11 @@ class Single extends Component {
         return (
                 <div className='ListSection'>
                 <h2>Poll Your Choice</h2>
-                {choices.map((choice, i) => <Choices {...this.props}
+                <form ref='choiceForm' onSubmit={this.handleSubmit.bind(this)}>
+                  {choices.map((choice, i) => <Choices {...this.props}
                              key={i} i={i} choice={choice}/>)}
+                  <br/><input type='submit'/>
+                </form>
             </div>
         );
     }
@@ -53,8 +61,9 @@ class Single extends Component {
 
 function mapState(state) {
     return {
-        questions: state.ques,
-        choices: state.choices
+      selectedOption:'1',
+      questions: state.ques,
+      choices: state.choices
 
     };
 }

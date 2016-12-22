@@ -90,3 +90,21 @@ export function getChoices() {
     choices: json
   }));
 }
+
+
+export function editchoice(editedChoice) {
+
+  return fetch(Urls.choice_detail(editedChoice.id), {
+    method: 'put',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-CSRFToken': getCookie('csrftoken')
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify(editedChoice)
+  }).then(response => response.json()).then(json => ({
+    type: types.EDIT_CHOICE,
+    que: json
+  }));
+}

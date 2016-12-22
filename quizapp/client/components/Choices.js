@@ -3,16 +3,37 @@ import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 import {Link} from 'react-router';
+import * as QuesActions from '../actions/QuesActions';
 
 class Choices extends Component {
 
+    handleOptionChange(changeEvent) {
+      /*  this.setState({
+            selectedOption: changeEvent.target.value
+            });*/
+        console.log('Button Selected', changeEvent.target.value);
+        
+    };
+
     render(){
 
+        let choice_div = null;
+        if (this.props.choice.question == this.props.params.id) 
+        {
+            choice_div = <p><input type="radio" value={ this.props.choice.id } name={this.props.choice_text} 
+            onChange={this.handleOptionChange}/>
+                { this.props.choice.choice_text }</p>
+        }
+
+        console.log('Choices Section');
         console.log(this.props);
+        return(
             <label>
-            <input type="radio" value="{ this.state.choice.id }" checked={this.state.selectedOption === '1'} onChange={this.handleOptionChange}/>
-            { this.props.choice.choice_text }
-        </label>
+            
+                {choice_div}
+
+            </label>
+            );
         
     }
     /*
@@ -33,6 +54,5 @@ class Choices extends Component {
             );
     }*/
 }
-
 
 export default Choices;
