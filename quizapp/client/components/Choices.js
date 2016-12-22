@@ -8,8 +8,6 @@ import {history,browserHistory} from 'react-router';
 
 class Choices extends Component {
 
-   
-    
     handleOptionChange(changeEvent) {
 
         console.log('Button Selected', changeEvent.target.value);
@@ -24,6 +22,7 @@ class Choices extends Component {
             id : this.props.choice.id,
             votes: this.props.choice.votes+1,
         })
+        
         this.getUpdate();
     };
 
