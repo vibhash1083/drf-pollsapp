@@ -92,7 +92,7 @@ export function getChoices() {
 }
 
 
-export function editchoice(editedChoice) {
+export function editChoice(editedChoice) {
 
   return fetch(Urls.choice_detail(editedChoice.id), {
     method: 'put',
