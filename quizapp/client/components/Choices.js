@@ -36,7 +36,7 @@ class Choices extends Component {
         let choice_div = null;
         if (this.props.choice.question == this.props.params.id) 
         {
-            choice_div = <p><input type="radio" value={ this.props.choice.id } name={this.props.choice_text} 
+            choice_div = <p><input type="radio" id='{ this.props.choice.id }' name='{this.props.choice.id}' 
             onChange={this.handleOptionChange.bind(this)}/>
                 { this.props.choice.choice_text } Votes: {votes}</p>
         }
