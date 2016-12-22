@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import classnames from 'classnames';
 import {Link} from 'react-router';
 
-export default class QuesSection extends Component {
+export default class Questions extends Component {
 
 
 

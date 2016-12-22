@@ -25,7 +25,7 @@ class App extends Component {
       <div>
         <h3>Questions List</h3>
         {this.props.ques.map((question, i) => <Questions {...this.props}
-                    key={i} i={i} question={question}/>)}
+                    i={i} question={question}/>)}
       </div>
     );
   }
