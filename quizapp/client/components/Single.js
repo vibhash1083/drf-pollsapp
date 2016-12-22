@@ -9,40 +9,60 @@ import * as QuesActions from '../actions/QuesActions';
 
 class Single extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            selectedOption:'1',
+            questions: this.props.questions,
+            choices: this.props.choices,
+        };
+    };
 
+    handleOptionChange(changeEvent) {
+      /*  this.setState({
+            selectedOption: changeEvent.target.value
+            });*/
+        console.log(changeEvent.target.value);
+    };
+    /*
+    handleFormSubmit: function (formSubmitEvent) {
+        formSubmitEvent.preventDefault();
+
+        console.log('You have selected:', this.state.selectedOption);
+    },
+    */
     render() {
 
-    const { questions,choices,actions } = this.props;
-    console.log('this.props',this.props,'question',questions);
-    const {id} = this.props.params;
-    const i = questions.findIndex(x => x.id==id);
-    const question_obj = questions[i];
+        const { questions, choices, actions } = this.props;
+        console.log('this.props', this.props, 'question', questions);
+        const {id} = this.props.params;
+        const i = questions.findIndex(x => x.id==id);
+        const question_obj = questions[i];
 
-    console.log('question_obj',question_obj);
+        console.log('question_obj',question_obj);
 
-    return (
-              <div className='ListSection'>
-                  <h2>Poll Your Choice</h2>
-                  {choices.map((choice, i) => <Choices {...this.props}
-                    key={i} i={i} choice={choice}/>)}
-                    
-              </div>
-            );
+        return (
+                <div className='ListSection'>
+                <h2>Poll Your Choice</h2>
+                {choices.map((choice, i) => <Choices {...this.props}
+                             key={i} i={i} choice={choice}/>)}
+            </div>
+        );
     }
 }
 
 function mapState(state) {
-  return {
-    questions: state.ques,
-    choices: state.choices
+    return {
+        questions: state.ques,
+        choices: state.choices
 
-  };
+    };
 }
 
 function mapDispatch(dispatch) {
-  return {
-    actions: bindActionCreators(QuesActions, dispatch)
-  };
+    return {
+        actions: bindActionCreators(QuesActions, dispatch)
+    };
 }
 
 export default connect(mapState, mapDispatch)(Single);
