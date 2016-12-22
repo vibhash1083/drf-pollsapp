@@ -13,11 +13,11 @@ class Choices extends Component {
     let choice_div = null;
     if (this.props.choice.question == this.props.params.id) 
     {
-      choice_div = <ul><p>{this.props.choice.choice_text}</p></ul>;
+      choice_div = <input type="radio">{this.props.choice.choice_text}</input>;
     }
 
     return (
-              <div className='ListSection'>
+              <div className='Choice'>
               {choice_div} 
               </div>
             );
