@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'quizapp.wsgi.application'
+WSGI_APPLICATION = 'pollsapp.wsgi.application'
 
 
 # Database
