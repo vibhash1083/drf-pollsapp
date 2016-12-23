@@ -20,6 +20,7 @@ class App extends Component {
   render()
   {
     const { ques, actions } = this.props;
+    console.log('In App: ', this.props);
 
     return (
       <div>
@@ -33,7 +34,8 @@ class App extends Component {
 
 function mapState(state) {
   return {
-    ques: state.ques
+    ques: state.ques,
+    choices: state.choices
   };
 }
 
