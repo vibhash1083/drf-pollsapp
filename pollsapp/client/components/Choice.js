@@ -6,7 +6,7 @@ import {Link} from 'react-router';
 import * as QuesActions from '../actions/QuesActions';
 import {history,browserHistory} from 'react-router';
 
-class Choices extends Component {
+class Choice extends Component {
 
     handleOptionChange(changeEvent) {
 
@@ -67,4 +67,4 @@ function mapDispatch(dispatch) {
     };
 }
 
-export default connect(mapState, mapDispatch)(Choices);
+export default connect(mapState, mapDispatch)(Choice);
