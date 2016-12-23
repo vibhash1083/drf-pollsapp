@@ -32,6 +32,7 @@ class App extends Component {
     return (
           <label>
             {ques_div}
+            
           </label>
     );
   }
