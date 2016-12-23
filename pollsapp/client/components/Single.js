@@ -36,7 +36,6 @@ class Single extends Component {
                 <form ref='choiceForm' onSubmit={this.handleSubmit.bind(this)}>
                   {choices.map((choice, i) => <Choices {...this.props}
                              key={i} i={i} choice={choice}/>)}
-                  <input type="submit"/>
                 </form>
             </div>
         );

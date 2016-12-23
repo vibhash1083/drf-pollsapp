@@ -22,12 +22,17 @@ class App extends Component {
     const { ques, actions } = this.props;
     console.log('In App: ', this.props);
 
+    let ques_div = <p><b>No Questions Found</b></p>;
+
+    if(this.props.ques.length > 0)
+    {
+      ques_div = <div><h3>Questions List</h3>{this.props.ques.map((question, i) => <Questions {...this.props} key={i} i={i} question={question}/>)}</div>
+    }
+
     return (
-      <div>
-        <h3>Questions List</h3>
-        {this.props.ques.map((question, i) => <Questions {...this.props}
-                    key={i} i={i} question={question}/>)}
-      </div>
+          <label>
+            {ques_div}
+          </label>
     );
   }
 }
