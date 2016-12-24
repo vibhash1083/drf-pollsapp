@@ -5,6 +5,8 @@ import { Router, browserHistory } from 'react-router';
 
 import Routes from './Routes';
 
+import DevTools from './DevTools';
+
 export default class Root extends Component {
 
   render() {
@@ -13,6 +15,7 @@ export default class Root extends Component {
       <Provider store={store}>
         <div>
           <Router history={browserHistory} routes={Routes} />
+          <DevTools />
         </div>
       </Provider>
     );
