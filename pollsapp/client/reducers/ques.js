@@ -1,4 +1,4 @@
-import { GET_QUES, ADD_QUES, DELETE_QUES, EDIT_QUE} from '../constants/ActionTypes';
+import { GET_QUES, ADD_QUES, DELETE_QUES, EDIT_QUES} from '../constants/ActionTypes';
 
 const initialState = [];
 
@@ -15,9 +15,9 @@ export default function ques(state = initialState, action) {
     return state.filter(que =>
       que.id !== action.id
     );
-  case EDIT_QUE:
+  case EDIT_QUES:
     return state.map(que =>
-      que.id === action.que.id ? action.que : que
+      ques.id === action.ques.id ? action.ques : ques
     );
   default:
     return state;

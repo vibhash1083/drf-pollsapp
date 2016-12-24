@@ -5,8 +5,6 @@ import {Link} from 'react-router';
 
 export default class Questions extends Component {
 
-
-
     render() {
     const { question, i ,actions } = this.props;
     return (

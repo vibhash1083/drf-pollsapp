@@ -67,7 +67,7 @@ class Single extends Component {
                                   <h2>Poll Your Choice</h2>
                                     <ul><p>{question_obj.id}. {question_obj.question_text}</p></ul>
                                     <form onSubmit={this.handleSubmit.bind(this)}>
-                                    {question_choice.map((option,i) =>
+                                    {question_choice.map((option, i) =>
                                         <ul><label>
                                         <input type='radio' key={i} name='{option.id}'
                                         value={option.id} onChange={this.handleChange.bind(this)}/>
@@ -75,7 +75,7 @@ class Single extends Component {
                                         </label></ul>
                                         )}
 
-                                    <input type='submit' value='Submit'/>
+                                    <ul><input type='submit' value='Submit'/></ul>
                                     </form>
                             </div>
         }
@@ -84,11 +84,13 @@ class Single extends Component {
             single_content = <div className='ListSection'>
                                   <h2>Votes Summary</h2>
                                     <ul><p>{question_obj.id}. {question_obj.question_text}</p></ul>
+                                    <div>
                                     {question_choice.map((option,i) =>
                                         <ul><label>
                                         {option.choice_text  } Votes : {option.votes}<br/>
                                         </label></ul>
                                         )}
+                                    </div>
                                     <h3>Thank You</h3>
                                 <Link to={"/"}>Go Back to the list of questions</Link>
 

@@ -14,7 +14,6 @@ class App extends Component {
   {
         this.props.actions.getQues();
         this.props.actions.getChoices();
-
   }
 
   render()

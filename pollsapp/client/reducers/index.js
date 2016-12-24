@@ -4,8 +4,8 @@ import choices from './choices';
 
 
 const rootReducer = combineReducers({
-  ques,
-  choices
+  			ques,
+  			choices
 });
 
 export default rootReducer;
