@@ -27,10 +27,11 @@ export function getQues() {
 }
 
 
-export function addQues(question_text, answer_text) {
+export function addQues(question_text) {
       const newQues = {
-        question: question_text,
-        answer: answer_text
+        question_text: question_text,
+        pub_date: '',
+        created_date: ''
       };
 
       return fetch(Urls.question_list(), {
@@ -64,9 +65,10 @@ export function deleteQues(id) {
   }));
 }
 
-export function editQue(editedQue) {
+export function editQues(editedQues) {
+  console.log('editedQues',editedQues)
 
-  return fetch(Urls.question_detail(editedQue.id), {
+  return fetch(Urls.question_detail(editedQues.id), {
     method: 'put',
     headers: {
       'Accept': 'application/json',
@@ -74,9 +76,9 @@ export function editQue(editedQue) {
       'X-CSRFToken': getCookie('csrftoken')
     },
     credentials: 'same-origin',
-    body: JSON.stringify(editedQue)
+    body: JSON.stringify(editedQues)
   }).then(response => response.json()).then(json => ({
-    type: types.EDIT_QUE,
+    type: types.EDIT_QUES,
     que: json
   }));
 }
@@ -91,6 +93,27 @@ export function getChoices() {
   }));
 }
 
+export function addChoice(question, choice_text) {
+      const newChoice = {
+        question: question,
+        choice_text: choice_text,
+        votes: 0
+      };
+
+      return fetch(Urls.choice_list(), {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken')
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify(newChoice)
+      }).then(response => response.json()).then(json => ({
+        type: types.ADD_CHOICE,
+        choice: json
+      }));
+}
 
 export function editChoice(editedChoice) {
 
@@ -105,6 +128,6 @@ export function editChoice(editedChoice) {
     body: JSON.stringify(editedChoice)
   }).then(response => response.json()).then(json => ({
     type: types.EDIT_CHOICE,
-    que: json
+    choice: json
   }));
 }

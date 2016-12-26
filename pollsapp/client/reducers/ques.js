@@ -17,7 +17,7 @@ export default function ques(state = initialState, action) {
     );
   case EDIT_QUES:
     return state.map(que =>
-      ques.id === action.ques.id ? action.ques : ques
+      que.id === action.que.id ? action.que : que
     );
   default:
     return state;
