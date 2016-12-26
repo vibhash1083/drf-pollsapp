@@ -117,12 +117,13 @@ class App extends Component {
                             <div className="dropdown">
                               <div id="myDropdown" className="dropdown-content">
                               <label htmlFor="QuestionOptions"><b>Question: </b> </label>                                
-                                  <select name = "questions" onChange={this.handleQuesSelect.bind(this)}>
-                                  {ques.map((question, i) =>                                      
-                                          <option key={i} name="{question.id}" value={question.id}>
-                                            { question.question_text  } 
-                                          </option>                                      
-                                  )}
+                                  <select name = "questions" onChange={this.handleQuesSelect.bind(this)} onfocus="this.selectedIndex = -1;">
+                                    <option value="-1">Please Select</option>
+                                    {ques.map((question, i) =>                                      
+                                            <option key={i} name="{question.id}" value={question.id}>
+                                              { question.question_text  } 
+                                            </option>                                      
+                                    )}
                                   </select>
                               </div>
                             </div>
