@@ -21,7 +21,3 @@ class QuesViewSet(viewsets.ModelViewSet):
 class ChoiceViewSet(viewsets.ModelViewSet):
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
-
-def router_register(router):
-    router.register(r'users', QuesViewSet)
-    router.register(r'users', ChoiceViewSet)
